@@ -6,6 +6,10 @@ import {
 } from "react-native";
 
 export function Planeta({ planeta }) {
+  function formatNum(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " m²";
+  }
+
   return (
     <View>
       <View style={styles.card}>
@@ -32,7 +36,7 @@ export function Planeta({ planeta }) {
         <View style={styles.orbital}>
           <Text style={{ fontSize: 14, color: "#fff" }}>Surface Area</Text>
           <Text style={{ fontWeight: "bold", fontSize: 14, color: "#fff" }}>
-            {planeta.areaSuperficieKm2}
+          {formatNum(planeta.areaSuperficieKm2)}
           </Text>
         </View>
 
